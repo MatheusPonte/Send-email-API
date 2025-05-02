@@ -13,9 +13,9 @@ SENHA_EMAIL = os.getenv("SENHA_EMAIL")
 def enviar_email():
     data = request.get_json()
 
-    destinatario = data.get('to')
-    assunto = data.get('Subject', 'Subject padrão')
-    corpo = data.get('Content', 'Corpo padrão')
+    destinatario = data.get('to') # Pra quem vai ser enviado
+    assunto = data.get('subject') #Aqui fica a mensagem que irá enviar 
+    corpo = data.get('content', 'Corpo padrão')
 
     if not destinatario:
         return jsonify({"erro": "Email do destinatário é obrigatório"}), 400
